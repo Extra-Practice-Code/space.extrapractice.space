@@ -5,14 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>domains</title>
+    <title>library</title>
     <style>
         body {
             font-size: 20px;
         }
 
         img {
-            width: 100%;
+            /* width: 100%; */
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .cover {
+            position: absolute;
+            visibility: hidden;
+        }
+
+        td:hover > .cover {
+            visibility: visible;
         }
 
         table,
@@ -23,15 +34,76 @@
 
         td {
             border: 1px solid #d1d1d1;
-            width: 33.33333%;
+            /* width: 33.33333%; */
             padding: 10px;
             vertical-align: top;
+        }
+
+        tr:hover{
+            background-color: khaki;
+        }
+
+        td[content=idle]::after{
+            content: "now!";
+            background-color: green;
+            color: white;
+
         }
     </style>
 </head>
 
 <body>
-   
+
+    <ul style="background-color:lightblue; color:purple;">  <p>Wishlist / todo list:</p>
+        <li>sort table</li>
+        <li>filter table (like on category or author)</li>
+        <li>search table</li>
+        <li>kiosk view: all the book covers (clickable)</li>
+    </ul> 
+
+    <h1>XP library</h1>
+    <h2>These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</h2>
+
+    <table>
+        <tr style="font-style: italic;">
+            <th>book</th>
+            <th>author</th>
+            <th>review</th>
+            <th>status</th>
+            <th>action</th>
+        </tr>
+        <tr>
+            <td>Ways of Being
+                <img class="cover" src="https://jamesbridle.com/media/pages/books/ways-of-being/3949ba8074-1680515080/ways_of_being_uk_hb_small.jpg" alt="">
+            </td>
+            <td>James Bridle</td>
+            <td>⭐ ⭐ ⭐ ⭐  nice read, bit long – B. Earl</td>
+            <td>idle</td>
+            <td><a href="mailto:info@extrapractice.space?subject=Borrow request!"><button>Borrow!</button></td>
+        </tr>
+        <tr>
+            <td>Atlas of Anomalous AI
+                <img class="cover" src="https://media.s-bol.com/RwQYYEGE9jyR/vlJpn6V/550x769.jpg" alt="">
+            </td>
+            <td>Ben Vickers & K Allado Mcdowell</td>
+            <td>? but nice soft cover - G. de Boer</td>
+            <td>being read (by Gijs)</td>
+            <td><a href="mailto:info@extrapractice.space?subject=Let's discuss this book"><button>Discuss?</button></a>
+            </td>   
+        </tr>
+        <tr>
+            <td>Meeting the Universe Halfway
+                <img class="cover" src="https://dukeupress.edu/Assets/Books/978-0-8223-3917-5_pr.jpg" alt="">
+            </td>
+            <td>Karen Barad</td>
+            <td>★★★★ very good just bit abstract sometimes</td>
+            <td>idle</td>
+            <td><a href="mailto:info@extrapractice.space?subject=Borrow request"><button>Borrow!</button></a>
+            </td>        
+        </tr>
+    </table>
+    
+
 </body>
 
 </html>
