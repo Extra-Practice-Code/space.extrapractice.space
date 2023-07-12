@@ -126,8 +126,12 @@ img {
     src: url("Arial Narrow.ttf");
 }
 
-@media only screen and (max-width:600px) {
+@media only screen and (max-width:768px) {
    #jitsi {
-    font-size: 6vw;
+        font-size: 6vw;
+   }
+   img {
+        width: 60vw;
+        height: 60vw;
    }
 }
