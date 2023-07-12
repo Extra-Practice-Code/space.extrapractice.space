@@ -117,6 +117,6 @@ img {
     object-fit: cover;
     width: 600px;
     height: 600px;
-    border: lavender dashed 1px;
+    border: black dashed 1px;
     border-radius: 50%;
 }
