@@ -115,8 +115,8 @@ iframe {
 img {
     width: 100%;
     object-fit: cover;
-    width: 600px;
-    height: 600px;
+    width: 40vw;
+    height: 40vw;
     border: black dashed 1px;
     border-radius: 50%;
 }
