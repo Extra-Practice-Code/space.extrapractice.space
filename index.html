@@ -7,15 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library</title>
     <script>
-         var plants = document.getElementsByClassName("plant");
-
-            for(plant of plants){
-            var card = plant.nextElementSibling;
-            var careSlider = card.querySelector("input[name=care]");
-            var controlSlider = card.querySelector("input[name=control]");
-
-            if (careSlider && careSlider.value){
-                var careValue = careSlider.value;
+        // script below is to be customised to do the zooming:
+        var zoomSlider = document.stack.querySelector("input[name=zoom]");
+        var careValue = careSlider.value;
                 plant.style.left = careValue + "vw";
 
                 careSlider.addEventListener('input', e => {
@@ -24,7 +18,7 @@
                 movePlant.style.left = careValue + "vw";
                 });    
 
-            }
+            
             if (controlSlider && controlSlider.value){
                 var controlValue = controlSlider.value;
                 plant.style.top = controlValue + "vh";
@@ -37,7 +31,7 @@
 
             }
 
-            }    
+           
     </script>
     <style>
         body{
@@ -67,6 +61,7 @@
         #bookzoom{
             position: absolute;
             -webkit-appearance: slider-vertical;
+            appearance: slider-vertical;
             top:10px;
             right: 30vw;
             height: 100px;
@@ -80,6 +75,7 @@
 
         .book:hover{
             width: 74%;
+            filter: drop-shadow(2px 2px 5px black);
             -webkit-filter: drop-shadow(2px 2px 5px black);
         }
 
@@ -88,7 +84,7 @@
             top:0;
             right:0;
             width: 30vw;
-            height: 100%;
+            height: 90vh;
             background-color: white;
             /* padding: 30px; */
             overflow-y: scroll;
@@ -135,7 +131,8 @@
             height: 10vh;
             padding-left: 15px;
             padding-top: 0;
-            background-color: burlywood;
+            font-size: 0.8em;
+            background-color: green;
         }
 
     </style>
@@ -144,7 +141,7 @@
 <body>
 <div class="stack">
     <input type="range" name="zoom" id="bookzoom">
-
+<!-- images should not look too bol.com, should show wear. Maybe centered? -->
     <span><img class="book" src="images/assemblagetheory.jpg"></span>
     <span><img class="book" src="images/anomalousai.jpg"></span>
     <span><img class="book" src="images/beingecological.jpg"></span>
