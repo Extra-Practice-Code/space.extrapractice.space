@@ -43,7 +43,7 @@ p {
     text-align: center;
     border: black dashed 1px;
     border-radius: 10px;
-    font-size: 80px;
+    font-size: 4vw;
     display: flex;
     align-items:center;
     justify-content:center;
@@ -119,4 +119,20 @@ img {
     height: 600px;
     border: black dashed 1px;
     border-radius: 50%;
+}
+
+@font-face {
+    font-family: "Arial Narrow";
+    src: url("Arial Narrow.ttf");
+}
+
+@media only screen and (max-width:600px) {
+   #jitsi {
+    font-size: 6vw;
+   }
+
+   main {
+    height: 95vh;
+   }
+  
 }
