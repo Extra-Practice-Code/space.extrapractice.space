@@ -1,0 +1,28 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  table {
+    margin: 10px;
+  }
+
+td {
+    padding: 10px;
+}
+
+form {
+    margin: 10px;
+}
+
+tr:hover {
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+}
+
+#header:hover {
+    color: black;
+    background-color: white;
+    cursor: default;
+}
