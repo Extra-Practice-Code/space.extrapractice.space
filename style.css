@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+img.tour-img {
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100dvh;
+    width: 100dvw;
+    z-index: 0;
+}
+img.mini-img {
+    max-width: 1em;
+}
+nav {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 10px;
+    z-index: 2;
+    bottom: 0;
+    margin: 20px;
+}
+a.button {
+    font-size: 18px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px;
+    z-index: 2;
+    color: blue;
+    text-decoration: none;
+}

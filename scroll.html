@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
+        img {
+            position: absolute;
+            height: 100vh;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img id="scrolling-image" src="images/xpanorama.png" alt="Image not found">
+    </div>
+    <script>
+        document.getElementById('scrolling-image').addEventListener('load', function () {
+            const image = this;
+            const imageWidth = image.offsetWidth;
+            const containerWidth = document.getElementById('container').offsetWidth;
+            
+            let position = 0;
+
+            const scroll = () => {
+                position--;
+                if (position <= -imageWidth + containerWidth) {
+                    position = 0;
+                }
+                image.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(scroll);
+            };
+            requestAnimationFrame(scroll);
+        });
+    </script>
+</body>
+
+</html>
