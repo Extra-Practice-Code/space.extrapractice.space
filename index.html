@@ -8,56 +8,35 @@
   <script src="https://code.angularjs.org/1.1.5/angular.min.js"></script>
   <script src="https://code.angularjs.org/1.1.5/angular-resource.min.js"></script>
   <script src="https://code.angularjs.org/1.1.5/angular-sanitize.min.js"></script>
+  <!-- On 12.07.2023 I (Kirsten) was home recovering from a cold, but feeling ok enough to want to call into the coding session happening that morning at Extra Practice. I made a meeting room via jitsi and asked them to pull me up on someone's screen. I then figured it would be cool to have a page where we can go to meet. -->
 </head>
 
 <body>
   <main>
     <h1>REMOTE.<span style="text-align: right;">EXTRAPRACTICE.SPACE</span></h1>
     <!-- <iframe src="https://meet.jit.si/remote.extrapractice"></iframe> -->
+    <!-- Jitsi unfortunately turned out to not work so well when embedded in an iframe – they now have a special service for that https://jitsi.org/jaas/. Perhaps we can do that still for free as we are never really with more than 25 in a meeting at once, but anyway I'm parking this for later... TBC -->
     <div id="jitsi">
       <a href="https://meet.jit.si/remote.extrapractice">meet.jit.si/remote.extrapractice</a>
+      <!-- Instead I added a link to a "room", so we at least always know where to go. And perhaps have coincidental meetups. -->
     </div>
     <div id="bottom">
+      <!-- Also, I thought it would be nice to add a feature that documents the remote call-ins into the studio. Who was here and elsewhere? You can add your presence via the are.na channel and share related photos. -->
       <div ng-app="arenaApp">
         <div class="container" ng-controller="channelShow">
             <div id="linktoarena">
               <a href="https://www.are.na/extra-practice/remote-extrapractice-space" target="_blank">+</a>
             </div>
             <!-- Channel contents loop -->
-            <div class="thing" ng-repeat="block in channel.contents">
-                <!-- <p ng-if="block.title" class="add-bottom">
-                  {{block.title}}
-                  <span ng-if="block.class == 'Link'">
-                    <a href="{{block.source.url}}" title="{{block.title}}">↳</a>
-                  </span>
-                  <span ng-if="block.class == 'Attachment'">
-                    | <a href="{{block.source.url}}" title="{{block.title}}">Download</a>
-                  </span>
-                </p> -->
-  
+            <div class="item" ng-repeat="block in channel.contents">
                 <div ng-if="block.class == 'Image'" class="block--image">
                     <a href="{{block.image.display.url}}" target="_blank">img</a>
                     <div class="image">
                       <img src="{{block.image.display.url}}" alt="{{block.title}}" class="scale-with-grid">
                     </div>
                 </div>
-  
-                <!-- <div ng-if="block.class == 'Attachment'">
-                  <img src="{{block.image.display.url}}" alt="{{block.title}}" class="scale-with-grid add-bottom">
-                </div> -->
-  
                 <div ng-if="block.class == 'Text'" ng-bind-html-unsafe="block.content_html">
                 </div>
-  
-                <!-- <div ng-if="block.class == 'Media'">
-                  <div ng-bind-html-unsafe="block.embed.html"></div>
-                  <figcaption ng-bind-html-unsafe="block.content_html">
-                  </figcaption>
-                </div>
-  
-                <div ng-if="block.class == 'Channel'">
-                  <h5 class="channel"><a href="#{{block.slug}}" title="">{{block.title}}</a></h5>
-                </div> -->
             </div>
             <!-- End Channel contents loop -->
     </div>
@@ -77,15 +56,6 @@
       $scope.channel = channel;
     });
   })
-
-  function show() {
-      /* Access image by id and change
-      the display property to block*/
-      document.getElementsByClassName('image')
-          .style.display = "block";
-      document.getElementsByClassName('image')
-          .style.display = "none";
-  }
 
 </script>
 

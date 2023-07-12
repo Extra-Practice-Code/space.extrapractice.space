@@ -1,10 +1,10 @@
 * {
-    scrollbar-width: none; /* hide scrollbar in firefox */
+    scrollbar-width: none;
     scroll-behavior: smooth;
   }
   
 *::-webkit-scrollbar {
-    display: none; /* hide scrollbar in edge and opera */
+    display: none;
     scroll-behavior: smooth;
 }
 * { 
@@ -12,11 +12,11 @@
 }
 
 body {
-    background-color: lavender;
+    background-color: lavender; /* I chose lavender because I like the colour and the smell which I miss now that I have this cold */
     margin: 0;
     width: 100vw;
     height: 100vh;
-    font-family: "Arial Narrow";
+    font-family: "Arial Narrow"; 
 }
 
 main {
@@ -92,7 +92,7 @@ iframe {
     column-gap: 10px;
 }
 
-.thing {
+.item {
     white-space: nowrap;
     border-radius: 10px;
     border: black dashed 1px;
@@ -108,7 +108,7 @@ iframe {
     transform:translate(-50%,-50%);
 }
 
-.thing:hover div {
+.item:hover div {
     display: block;
 }
 
