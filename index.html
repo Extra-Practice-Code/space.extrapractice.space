@@ -6,16 +6,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library</title>
+    <script>
+         var plants = document.getElementsByClassName("plant");
+
+            for(plant of plants){
+            var card = plant.nextElementSibling;
+            var careSlider = card.querySelector("input[name=care]");
+            var controlSlider = card.querySelector("input[name=control]");
+
+            if (careSlider && careSlider.value){
+                var careValue = careSlider.value;
+                plant.style.left = careValue + "vw";
+
+                careSlider.addEventListener('input', e => {
+                var careValue = e.target.value;    
+                var movePlant = e.target.parentElement.parentElement.previousElementSibling;
+                movePlant.style.left = careValue + "vw";
+                });    
+
+            }
+            if (controlSlider && controlSlider.value){
+                var controlValue = controlSlider.value;
+                plant.style.top = controlValue + "vh";
+
+                controlSlider.addEventListener('input', e => {
+                var controlValue = e.target.value;    
+                var movePlant = e.target.parentElement.parentElement.previousElementSibling;
+                movePlant.style.top = controlValue + "vh";
+                });    
+
+            }
+
+            }    
+    </script>
     <style>
-        body {
-            font-size: 20px;
-            /* background-color: peachpuff; */
+        body{
+            font-size: 1.5em;
+            background-color: lightgray;
+            font-family: Arial Narrow, Arial, sans-serif;
+            height: 100%;
+            margin: 0;
+            --zoom: 70%;
+        }
+        
+        .stack{
+            display: table-cell;
+            position: relative;
+            vertical-align: bottom;
+            top:0;
+            left:0;
+            height: 90vh;
+            margin-bottom: -80px;
+            font-size: 0em;
         }
 
-        img {
-            /* width: 100%; */
-            max-width: 200px;
-            max-height: 200px;
+        .stack span{
+            display: inline-block;
+        }
+        
+        #bookzoom{
+            position: absolute;
+            -webkit-appearance: slider-vertical;
+            top:10px;
+            right: 30vw;
+            height: 100px;
+            width: 20px;
+        }
+        .book{
+            padding:0;
+            margin: 0;
+            width: var(--zoom);
+        }
+
+        .book:hover{
+            width: 74%;
+            -webkit-filter: drop-shadow(2px 2px 5px black);
+        }
+
+        .blurb{
+            position: absolute;
+            top:0;
+            right:0;
+            width: 30vw;
+            height: 100%;
+            background-color: white;
+            /* padding: 30px; */
+            overflow-y: scroll;
+        }
+
+        .block{
+            margin: 10px;
+            padding: 10px;
+            border: dashed black 1px;
+            border-radius: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border:0;
+        }
+
+        td:first-child{
+            font-style: italic;
+        }
+
+
+        td {
+            padding: 10px;
+            vertical-align: top;
+        }
+
+        tr:hover{
+            background-color: khaki;
         }
 
         .cover {
@@ -27,83 +129,132 @@
             visibility: visible;
         }
 
-        table,
-        tr,
-        td {
-            border-collapse: collapse;
+        footer{
+            position: fixed;
+            bottom: 0;
+            height: 10vh;
+            padding-left: 15px;
+            padding-top: 0;
+            background-color: burlywood;
         }
 
-        td {
-            border: 1px solid #d1d1d1;
-            /* width: 33.33333%; */
-            padding: 10px;
-            vertical-align: top;
-        }
-
-        tr:hover{
-            background-color: khaki;
-        }
-
-        td[content=idle]::after{
-            content: "now!";
-            background-color: green;
-            color: white;
-
-        }
     </style>
 </head>
 
 <body>
+<div class="stack">
+    <input type="range" name="zoom" id="bookzoom">
 
-    <ul style="width:400px; background-color:khaki; color:purple;">  <p>Wishlist / todo list:</p>
-        <li>sort table</li>
-        <li>filter table (like on category or author)</li>
-        <li>search table</li>
-        <li>kiosk view: all the book covers (clickable). Or better: all book spines like an actual stack</li>
-    </ul> 
+    <span><img class="book" src="images/assemblagetheory.jpg"></span>
+    <span><img class="book" src="images/anomalousai.jpg"></span>
+    <span><img class="book" src="images/beingecological.jpg"></span>
+    <span><img class="book" src="images/braidingsweetgrass.jpg"></span>
+    <span><img class="book" src="images/comparativeplanatology.jpg"></span>
+    <span><img class="book" src="images/darkecology.jpg"></span>
+    <span><img class="book" src="images/deathbylandscape.jpg"></span>
+    <span><img class="book" src="images/delusionofcare.jpg"></span>
+</div>
+<div class="blurb">
 
+    <!-- <div class="block">
     <h1>XP library</h1>
-    <p style="width: 400px;">These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</p>
-
-    <table>
-        <tr style="font-style: italic;">
-            <th>book</th>
-            <th>author</th>
-            <th>review</th>
-            <th>status</th>
-            <th>action</th>
-        </tr>
+    <p>These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</p>
+    </div> -->
+    
+    <div class="block">
+    <h2>Details</h2>
+    <table class="bookinfo">
         <tr>
+            <td>title</td>
             <td>Ways of Being
                 <img class="cover" src="https://jamesbridle.com/media/pages/books/ways-of-being/3949ba8074-1680515080/ways_of_being_uk_hb_small.jpg" alt="">
             </td>
+        </tr>
+        <tr>
+            <td>author</td>
             <td>James Bridle</td>
-            <td>⭐ ⭐ ⭐ ⭐  nice read, bit long – B. Earl</td>
-            <td>idle</td>
-            <td><a href="mailto:info@extrapractice.space?subject=Borrow request!"><button>Borrow!</button></td>
         </tr>
         <tr>
-            <td>Atlas of Anomalous AI
-                <img class="cover" src="https://media.s-bol.com/RwQYYEGE9jyR/vlJpn6V/550x769.jpg" alt="">
-            </td>
-            <td>Ben Vickers & K Allado Mcdowell</td>
-            <td>? but nice soft cover - G. de Boer</td>
-            <td>being read (by Gijs)</td>
-            <td><a href="mailto:info@extrapractice.space?subject=Let's discuss this book"><button>Discuss?</button></a>
-            </td>   
+            <td>year</td>
+            <td>2022</td>
         </tr>
         <tr>
-            <td>Meeting the Universe Halfway
-                <img class="cover" src="https://dukeupress.edu/Assets/Books/978-0-8223-3917-5_pr.jpg" alt="">
-            </td>
-            <td>Karen Barad</td>
-            <td>★★★★ very good just bit abstract sometimes</td>
+            <td>score</td>
+            <td>⭐ ⭐ ⭐ ⭐</td>
+        </tr>
+        <tr>
+            <td>review</td>
+            <td>ice read, bit long – B. Earl</td>
+        </tr>
+        <tr>
+            <td>status</td>
             <td>idle</td>
-            <td><a href="mailto:info@extrapractice.space?subject=Borrow request"><button>Borrow!</button></a>
-            </td>        
+        </tr>
+        <tr>
+            <td>[action]</td>
+            <td><a href="mailto:info@extrapractice.space?subject=Borrow request!"><button>Borrow!</button></a></td>
+        </tr>
+        <tr>
+            <td>from</td>
+            <td>Ben</td>
         </tr>
     </table>
+    <br>
+    <a href="https://docs.google.com/spreadsheets/d/1i2qK9If--zLJWyNxfymbViznZlIXVEYkmqzuzoZ2_MQ/edit#gid=0">Spreadsheet</a>
     
+
+    <table class="bookinfo">
+        <tr id="blurbTitle">
+            <th>Title</th>
+        </tr>
+        <tr id="blurbAuthor">
+            <th>Author</th>
+        </tr>
+        <tr id="blurbYear">
+            <th>Year</th>
+        </tr>
+        <tr id="blurbDate">
+            <th>Year</th>
+        </tr>
+        <tr id="blurbStatus">
+            <th>Status</th>
+        </tr>
+        <tr id="blurbProprietary">
+            <th>Propietary</th>
+        </tr>
+        <tr id="blurbColor">
+            <th>Color</th>
+        </tr>
+        <tr id="blurbHeight">
+            <th>Height</th>
+        </tr>
+        <tr id="blurbScore">
+            <th>Score</th>
+        </tr>
+        <tr id="blurbReview">
+            <th>Review</th>
+        </tr>
+        <tr id="blurbWebsite">
+            <th>Website</th>
+        </tr>
+    </table>
+
+
+
+
+
+    <script id="script" src="assets/js/import.js"></script>
+    <script id="script" src="assets/js/script.js"></script>
+
+    </div>
+
+</div>
+
+
+<footer>
+    <p><strong>The XP library</strong> These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</p>
+</footer>
+
 
 </body>
 
