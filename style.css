@@ -37,6 +37,25 @@ p {
     margin: 0;
 }
 
+#jitsi {
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    border: black dashed 1px;
+    border-radius: 10px;
+    font-size: 80px;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+
+a {
+    color: inherit;
+}
+a:hover {
+    color: blue;
+}
+
 iframe {
     flex: 1;
     width: 100%;
