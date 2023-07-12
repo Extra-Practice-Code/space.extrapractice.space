@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>remote.extrapractice.space</title>
+  <link href="style.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.angularjs.org/1.1.5/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.1.5/angular-resource.min.js"></script>
+  <script src="https://code.angularjs.org/1.1.5/angular-sanitize.min.js"></script>
+</head>
+
+<body>
+  <main>
+    <h1>REMOTE.<span style="text-align: right;">EXTRAPRACTICE.SPACE</span></h1>
+    <iframe src="https://meet.jit.si/remote.extrapractice"></iframe>
+    <div id="bottom">
+      <div ng-app="arenaApp">
+        <div class="container" ng-controller="channelShow">
+            <div id="linktoarena">
+              <a href="https://www.are.na/extra-practice/remote-extrapractice-space" target="_blank">+</a>
+            </div>
+            <!-- Channel contents loop -->
+            <div class="thing" ng-repeat="block in channel.contents">
+                <!-- <p ng-if="block.title" class="add-bottom">
+                  {{block.title}}
+                  <span ng-if="block.class == 'Link'">
+                    <a href="{{block.source.url}}" title="{{block.title}}">↳</a>
+                  </span>
+                  <span ng-if="block.class == 'Attachment'">
+                    | <a href="{{block.source.url}}" title="{{block.title}}">Download</a>
+                  </span>
+                </p> -->
+  
+                <div ng-if="block.class == 'Image'" class="block--image">
+                    <a href="{{block.image.display.url}}" target="_blank">img</a>
+                    <div class="image">
+                      <img src="{{block.image.display.url}}" alt="{{block.title}}" class="scale-with-grid">
+                    </div>
+                </div>
+  
+                <!-- <div ng-if="block.class == 'Attachment'">
+                  <img src="{{block.image.display.url}}" alt="{{block.title}}" class="scale-with-grid add-bottom">
+                </div> -->
+  
+                <div ng-if="block.class == 'Text'" ng-bind-html-unsafe="block.content_html">
+                </div>
+  
+                <!-- <div ng-if="block.class == 'Media'">
+                  <div ng-bind-html-unsafe="block.embed.html"></div>
+                  <figcaption ng-bind-html-unsafe="block.content_html">
+                  </figcaption>
+                </div>
+  
+                <div ng-if="block.class == 'Channel'">
+                  <h5 class="channel"><a href="#{{block.slug}}" title="">{{block.title}}</a></h5>
+                </div> -->
+            </div>
+            <!-- End Channel contents loop -->
+    </div>
+  </main>
+  <div id="lightbox"></div>
+</body>
+<script type="text/javascript">
+  var app = angular.module('arenaApp', ['ngResource', 'ngSanitize']);
+
+  app.controller('channelShow', function($scope, $resource) {
+    var Channel = $resource('https://api.are.na/v2/channels/:slug');
+
+    var channel = Channel.get({
+      slug: 'remote-extrapractice-space',
+      direction: 'desc'
+    }, function() {
+      $scope.channel = channel;
+    });
+  })
+
+  function show() {
+      /* Access image by id and change
+      the display property to block*/
+      document.getElementsByClassName('image')
+          .style.display = "block";
+      document.getElementsByClassName('image')
+          .style.display = "none";
+  }
+
+</script>
+
+</html>
