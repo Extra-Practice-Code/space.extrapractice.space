@@ -1,4 +1,4 @@
-const img = document.querySelector("#target-img");
+const img = document.querySelector("#map-img");
 const portals = document.querySelectorAll(".portal");
 
 function positionLinks() {

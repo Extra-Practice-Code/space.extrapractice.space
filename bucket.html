@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>observe xp – start</title>
-    <link rel="stylesheet" href="style.css">
+    <title>nap</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        img#inside-bucket  {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-35%, -20%);
-            max-width: 35%;
-            max-height: 35%;
-            z-index: -2;
+        body {
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/69/NASA-HS201427a-HubbleUltraDeepField2014-20140603.jpg');
+            background-size: 20%;
+            background-position: center center;
         }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="button"><img src="images/tour-1.jpg" class="mini-img"> approach</a>
-    </nav>
-    <img src="images/bucket.png" class="tour-img">
-    <img src="images/inside-bucket.jpg" id="inside-bucket">
+    <div class="map">
+        <img id="map-img" src="images/bucket.png">
+
+        <!-- image map links -->
+        <a href="space.html" class="portal" data-pos="0.50,0.58" data-size="0.200,0.300"></a>
+    </div>
+
+    <script src="js/image-map.js"></script>
 </body>
 </html>
