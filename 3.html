@@ -62,9 +62,51 @@
     </map>
 
     <script>
+
+        slider.addEventListener("input", e => {
+            // run something
+        });
+
+
         $(document).ready(function() {
             $('map').imageMapResize();
+    
+            // Create a div element to represent the area outline
+            var outline = $('<div>').css({
+                border: '2px solid red',  // border style
+                position: 'absolute',
+                pointerEvents: 'none'  // allows clicks to pass through to the underlying image
+            }).appendTo('body');
+    
+            // Get the area element and its coords
+            var area = $('area');
+            var coords = area.attr('coords').split(',').map(Number);
+    
+            // Position and size the outline
+            outline.css({
+                left: coords[0],
+                top: coords[1],
+                width: coords[2] - coords[0],
+                height: coords[3] - coords[1]
+            });
+    
+            // Adjust the outline on window resize
+            $(window).resize(function() {
+                var img = $('.tour-img');
+    
+                // Calculate the scale factors
+                var scaleX = img.width() / img[0].naturalWidth;
+                var scaleY = img.height() / img[0].naturalHeight;
+    
+                // Update the position and size
+                outline.css({
+                    left: coords[0] * scaleX,
+                    top: coords[1] * scaleY,
+                    width: (coords[2] - coords[0]) * scaleX,
+                    height: (coords[3] - coords[1]) * scaleY
+                });
+            }).resize();  // trigger the resize event to initially position the outline
         });
-    </script>
+    </script>    
 </body>
 </html>
