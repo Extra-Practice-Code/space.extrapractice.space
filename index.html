@@ -6,33 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library</title>
-    <script>
-        // script below is to be customised to do the zooming:
-        var zoomSlider = document.stack.querySelector("input[name=zoom]");
-        var careValue = careSlider.value;
-                plant.style.left = careValue + "vw";
 
-                careSlider.addEventListener('input', e => {
-                var careValue = e.target.value;    
-                var movePlant = e.target.parentElement.parentElement.previousElementSibling;
-                movePlant.style.left = careValue + "vw";
-                });    
-
-            
-            if (controlSlider && controlSlider.value){
-                var controlValue = controlSlider.value;
-                plant.style.top = controlValue + "vh";
-
-                controlSlider.addEventListener('input', e => {
-                var controlValue = e.target.value;    
-                var movePlant = e.target.parentElement.parentElement.previousElementSibling;
-                movePlant.style.top = controlValue + "vh";
-                });    
-
-            }
-
-           
-    </script>
     <style>
         body{
             font-size: 1.5em;
@@ -56,8 +30,12 @@
 
         .stack span{
             display: inline-block;
+            /* z-index: 1; */
         }
         
+        .stack span:hover{
+            /* z-index: 3;     */
+        }
         #bookzoom{
             position: absolute;
             -webkit-appearance: slider-vertical;
@@ -67,16 +45,21 @@
             height: 100px;
             width: 20px;
         }
+
         .book{
             padding:0;
             margin: 0;
             width: var(--zoom);
+            filter: drop-shadow(0);
+            -webkit-filter: drop-shadow(0);
+            -webkit-transition: margin 0.1s;
+            /* transition: margin 0.1s; */
         }
 
         .book:hover{
-            width: 74%;
-            filter: drop-shadow(2px 2px 5px black);
-            -webkit-filter: drop-shadow(2px 2px 5px black);
+            margin-left: 10px;
+            filter: drop-shadow(-4px 20px 15px black);
+            -webkit-filter: drop-shadow(-4px 20px 15px black);
         }
 
         .blurb{
@@ -140,7 +123,7 @@
 
 <body>
 <div class="stack">
-    <input type="range" name="zoom" id="bookzoom">
+    <input type="range" min="2" max="100" value="60" name="zoom" id="bookzoom">
 <!-- images should not look too bol.com, should show wear. Maybe centered? -->
     <span><img class="book" src="images/assemblagetheory.jpg"></span>
     <span><img class="book" src="images/anomalousai.jpg"></span>
@@ -152,11 +135,6 @@
     <span><img class="book" src="images/delusionofcare.jpg"></span>
 </div>
 <div class="blurb">
-
-    <!-- <div class="block">
-    <h1>XP library</h1>
-    <p>These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</p>
-    </div> -->
     
     <div class="block">
     <h2>Details</h2>
@@ -252,6 +230,20 @@
     <p><strong>The XP library</strong> These are the books that are in our space. You can always come to read them. When they're just laying there "idle" you can request to borrow them, and when they are "being read" by one of us you're welcome to discuss them.</p>
 </footer>
 
+<script>
+    // script below is to be customised to do the zooming:
+    var zoomSlider = document.getElementById("bookzoom");
+   
+    function zoomBooks(){
+        var zoom = zoomSlider.value;
+        var zoomValue = zoom + "%";
+        document.body.style.setProperty('--zoom', zoomValue)
+    }
+
+    zoomSlider.addEventListener("input", zoomBooks);
+
+       
+</script>
 
 </body>
 
