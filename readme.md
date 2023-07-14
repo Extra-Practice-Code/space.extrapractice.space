@@ -18,7 +18,6 @@
 - replace the **"flyTo"** parenthesis with the name of the var
 - fill the **SPAN** with the title you putted on the var
 
-
 ### CATEGORIES:
 `-> on style.css (line 177)`
 - each **.xxxCategory:before** is the category dot color
