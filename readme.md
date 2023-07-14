@@ -21,4 +21,4 @@
 ### CATEGORIES:
 `-> on style.css (line 177)`
 - each **.xxxCategory:before** is the category dot color
-- if you create new ones you have to add them to the *marker.js* too, line 4 (just set the swimLayer color)
+- if you create new ones you have to add them to the *marker.js* too, line 4 (just set the CSS color you define)
