@@ -1,7 +1,7 @@
 *here some instructions:*
 
 ### NEW MARKERS:
-`on markers.js (line 10)`
+`-> on markers.js (line 10)`
 - copy the last VAR
 - change the **VAR** name
 - replace the **[coordinates](https://map.extrapractice.space)** you found on the map when clicking anywhere
@@ -12,7 +12,7 @@
 - and the **DESCRIPTION**
 - last step is to add this marker in the list
 
-`->on index.html (line 48)`
+`-> on index.html (line 48)`
 - copy one of the SPAN
 - replace the **CLASS** category with the one you putted on the marker
 - replace the **"flyTo"** parenthesis with the name of the var
