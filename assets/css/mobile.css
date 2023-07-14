@@ -1,0 +1,32 @@
+@media screen and (max-width: 800px) {
+
+  .titleDesktop {
+    display: none !important;
+  }
+
+  .titleMobile {
+    display: block;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  #map {
+    width: calc(100vw - 40px);
+    height: calc(50vh - 45px);
+  }
+
+  #infos {
+    width: 100%;
+    height: calc(50vh - 45px);
+    overflow-y: scroll;
+    position: relative;
+  }
+
+  .block,
+  .home {
+    width: calc(100vw - 80px);
+  }
+
+}
