@@ -1,5 +1,7 @@
 console.log('import.js ✅')
 
+var title = document.querySelector('h2')
+
 var blurbTitle = document.getElementById('blurbTitle')
 var blurbCover = document.getElementById('blurbCover')
 var blurbAuthor = document.getElementById('blurbAuthor')
@@ -38,17 +40,20 @@ getJSON("https://opensheet.elk.sh/1i2qK9If--zLJWyNxfymbViznZlIXVEYkmqzuzoZ2_MQ/l
   data.forEach(function (row, index) {
     var stack = document.querySelector('.stack')
 
+    
     let dataSpan = document.createElement("span");
     let dataImage = document.createElement("img");
     dataImage.className = row.published + ' book';
     dataImage.dataset.order = row.order;
     dataImage.src = "images/" + row.id + ".jpg";
     dataImage.id = row.id;
-
+    
     dataSpan.appendChild(dataImage);
     stack.appendChild(dataSpan);
-
+    
     dataImage.addEventListener('click', (event) => {
+      
+      title.innerHTML = 'Details';
 
       // see the id, but not needed now
       var wichBook = event.target.id
