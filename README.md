@@ -1,4 +1,4 @@
-# How to put a domain from this Github online.
+# How to set up a subdomain branch and then put it online using Netlify.
 
 In order to use Github as a repository for our various websites on different subdomains we need to make use of the 'branches' function. To make a new branch using github.com:
 1. You need to logged into your account on the website and then find the space.extrapractice.space respository.
