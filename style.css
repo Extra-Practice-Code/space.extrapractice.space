@@ -55,7 +55,7 @@ a {
 a:hover {
     color: blue;
 }
-a::after {
+.arrow::after {
     content: " \002197\00fe0e";
 }
 
