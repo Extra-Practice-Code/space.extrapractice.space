@@ -55,6 +55,9 @@ a {
 a:hover {
     color: blue;
 }
+a::after {
+    content: " \002197\00fe0e";
+}
 
 iframe {
     flex: 1;
